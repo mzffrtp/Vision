@@ -1,11 +1,19 @@
 
-import './App.css'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import MainPage from './pages/main-page'
+import Header from './components/header'
 
 function App() {
 
   return (
     <>
-    Mvision test git hub
+    <BrowserRouter>
+    <Header />
+    <Routes>
+      <Route path="/" element={<MainPage />}></Route>
+
+    </Routes>
+    </BrowserRouter>
     </>
   )
 }
