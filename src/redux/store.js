@@ -3,7 +3,7 @@ import { movieReducer } from "./reducer/movieReducer"
 import thunk from "redux-thunk"
 
 const rootReducer = combineReducers({
-    movieReducer
+    movieReducer,
 })
 
 const store = createStore(rootReducer, applyMiddleware(thunk))
