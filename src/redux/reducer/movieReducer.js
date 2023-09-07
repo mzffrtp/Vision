@@ -1,3 +1,5 @@
+import { ActionTypes } from "../constants/actionTypes";
+
 const initialState = {
     films: [],
     genres: [],
@@ -6,7 +8,7 @@ const initialState = {
 
 export const movieReducer = (state = initialState, { type, payload }) => {
     switch (type) {
-        case "GET_MOVIES":
+        case ActionTypes.GET_FILMS:
             return {
                 ...state,
                 films: payload,

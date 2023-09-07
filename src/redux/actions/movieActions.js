@@ -1,4 +1,5 @@
 import axios from "axios";
+import { ActionTypes } from "../constants/actionTypes";
 // data fetch settings
 
 export const options = {
@@ -13,13 +14,13 @@ export const options = {
 axios.defaults.baseURL = "https://api.themoviedb.org/3"
 
 //fetching data
-
-
-
 export const getFilms = () => (dispatch) => {
     axios
         .get("/movie/popular", options)
-        .then((res) => { console.log(res) })
+        .then((res) => (dispatch({
+            type: ActionTypes.GET_FILMS,
+            payload: res.data.results,
+        })))
 }
 
 /* THUNK coding alternative
