@@ -1,21 +1,30 @@
-import { useEffect } from "react";
+import { useEffect, useReducer } from "react";
 import HeroFilm from "../../components/hero-film";
-import MovieList from "../../components/movie-list";
-import { useDispatch } from "react-redux";
-import { getFilms } from "../../redux/actions/movieActions";
+import { useDispatch, useSelector } from "react-redux";
+import { getFilms, getGenres } from "../../redux/actions/movieActions";
+import MovieGenre from "../../components/movie-genre";
 
 export default function MainPage () {
     const dispatch = useDispatch();
+    const genreState = useSelector((state)=> state.movieReducer.genres)
 
     useEffect(()=>{
         //POPULER FILMS
         dispatch(getFilms())
+        // genres
+        dispatch(getGenres())
     }, [])
     return (
         <div className="bg-dark text-light">
-            <h1>Main Page</h1>
             <HeroFilm />
-            <MovieList />
+            {
+                genreState.slice(0-5).map((genre,i)=>(
+                    <MovieGenre key={i}
+                    title= {genre.name}
+                    fetchUrl = {`/discover/movie?with_genres=${genre.id}`} />
+                ))
+            }
+            
         </div>
     )
 }

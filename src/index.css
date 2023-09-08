@@ -19,3 +19,12 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+.moviesInGenre {
+  max-width: 27rem;
+  border-radius: 0.5rem;
+}
+
+.moviesInGenre:hover {
+  scale:1.02
+}

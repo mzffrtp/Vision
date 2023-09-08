@@ -13,6 +13,12 @@ export const movieReducer = (state = initialState, { type, payload }) => {
                 ...state,
                 films: payload,
             };
+
+        case ActionTypes.GET_GENRES:
+            return {
+                ...state,
+                genres: payload
+            }
         default:
             return state
 

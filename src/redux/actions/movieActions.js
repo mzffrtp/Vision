@@ -13,7 +13,7 @@ export const options = {
 // Base URL definition
 axios.defaults.baseURL = "https://api.themoviedb.org/3"
 
-//fetching data
+//fetching hero movies
 export const getFilms = () => (dispatch) => {
     axios
         .get("/movie/popular", options)
@@ -21,6 +21,17 @@ export const getFilms = () => (dispatch) => {
             type: ActionTypes.GET_FILMS,
             payload: res.data.results,
         })))
+}
+
+//fetching genres
+
+export const getGenres = () => (dispatch) => {
+    axios
+        .get("/genre/movie/list", options)
+        .then((res) => dispatch({
+            type: ActionTypes.GET_GENRES,
+            payload: res.data.genres
+        }))
 }
 
 /* THUNK coding alternative
