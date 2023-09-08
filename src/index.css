@@ -28,3 +28,10 @@
 .moviesInGenre:hover {
   scale:1.02
 }
+
+.movie-details {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;  
+}

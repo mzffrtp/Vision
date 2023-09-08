@@ -4,6 +4,7 @@ import { options } from "../../redux/actions/movieActions"
 import { Splide, SplideSlide } from "@splidejs/react-splide"
 import '@splidejs/react-splide/css';
 import { baseImgUrl } from "../hero-film";
+import { Link } from "react-router-dom";
 
 export default function MovieGenre ({title, fetchUrl}) {
     const [moviesInGenres, setMoviesInGenres] = useState([])
@@ -25,8 +26,9 @@ export default function MovieGenre ({title, fetchUrl}) {
                 {
                     moviesInGenres?.map((movie, i)=> (
                         <SplideSlide key={i}>
-                            
+                            <Link to={`/movie/${movie.id}`}>
                             <img className="moviesInGenre" src={`${baseImgUrl}${movie.backdrop_path}`}/>
+                            </Link>
                         </SplideSlide>
                     ))
                 }
